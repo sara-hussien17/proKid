@@ -1,0 +1,20 @@
+
+.video-wrapper {
+  max-height: 350px;
+}
+
+@media (max-width: 768px) {
+  .video-wrapper {
+    max-height: 250px;
+  }
+}
+.feature-card {
+  transition: transform 0.4s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.feature-card:hover {
+  transform: scale(1.05) translateY(-5px);
+  background-color: #d4edda; 
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,97 @@
+:host {
+  .video-wrapper {
+    background-color: #e3f2fd;
+    padding: 1rem;
+  }
+
+  .playlist-container {
+    background-color: #fffde7;
+  }
+
+  .list-group-item {
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+      background-color: #ffe0b2;
+      transform: scale(1.02);
+    }
+
+    &.active {
+      background-color: #ffcc80ee;
+      color: #000;
+      font-weight: bold;
+    }
+  }
+
+  h4 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+  
+  .list-group {
+    overflow-y: auto;
+    max-height: 70vh;
+
+    /* إخفاء الشريط في Chrome + Edge */
+    &::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+    }
+
+    /* إخفاء الشريط في Firefox */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+   .quiz-section {
+    background: #fffde7; // لون أصفر ناعم
+    border: 2px dashed #fbc02d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-in-out;
+  }
+
+  .quiz-img {
+    width: 150px;
+    max-width: 100%;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+   .quiz-section {
+    background: linear-gradient(135deg, #ff9900df, #ffcc80d1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kid-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    max-width: 40%;
+    animation: floatUp 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .bounce {
+    animation: bounce 1.5s infinite;
+  }
+
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+    
+
+}
