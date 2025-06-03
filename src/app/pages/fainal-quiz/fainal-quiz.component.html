@@ -1,0 +1,102 @@
+<section class="container my-5 py-5">
+<div *ngIf="!showResult" class="my-5">
+  @if (questions.length > 0) {
+    <div class="d-flex align-items-center gap-3 mb-4 ms-3">
+      
+      <h4 class="fw-bold text-primary m-0">Final Quiz : Introduction to AI</h4>
+    </div>
+
+    <div class="card shadow-lg p-2 rounded-4 border-0 mx-auto" style="background-color: #f0f9ff; max-width: 850px;">
+      <div class="mb-3 text-center">
+        <span class="badge bg-info text-dark fs-5 px-3 py-2">
+          Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+        </span>
+      </div>
+
+      <p class="fs-4 text-center text-dark mb-4">
+        {{ questions[currentQuestionIndex].content }}
+      </p>
+
+      <div class="mb-4">
+        <ul class="list-group">
+          @for (option of questions[currentQuestionIndex].allOptions; track option) {
+            <li class="list-group-item bg-transparent border-0">
+              <label class="form-check-label d-flex align-items-center gap-3 fs-5">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  [value]="option"
+                  [checked]="answers[currentQuestionIndex] === option"
+                  (change)="selectAnswer(option)"
+                  name="question-{{ currentQuestionIndex }}"
+                />
+                <span>{{ option }}</span>
+              </label>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- أزرار التنقل -->
+      <div class="d-flex justify-content-between flex-wrap gap-3 mt-3">
+        <button
+          class="btn btn-outline-info px-4 py-2 fs-5 rounded-pill"
+          (click)="back()"
+          [disabled]="currentQuestionIndex === 0"
+        >
+          ⬅️ Back
+        </button>
+
+        <button
+          class="btn btn-success px-4 py-2 fs-5 rounded-pill"
+          (click)="next()"
+        >
+          {{ currentQuestionIndex === questions.length - 1 ? '🎯 Submit' : '➡️ Next' }}
+        </button>
+      </div>
+    </div>
+  }
+</div>
+
+
+
+<div *ngIf="showResult" class="container mt-4">
+  <div class="text-center">
+    <h2 class="text-primary display-5"> Your Final Result 🎉</h2>
+    <h4 class="mt-2">You got {{ result.correctAnswers }} out of {{ result.totalQuestions }} questions!</h4>
+    <div class="badge bg-success fs-4 p-2 mt-2"> Your Score: {{ result.score }}% </div>
+  </div>
+
+  <div class="mt-5">
+    @for (feedback of result.feedback; track feedback) {
+      <div class="card mb-4 shadow-lg border-info ">
+        <div class="card-body ">
+          <h5 class="card-title fw-bold text-info">Question:</h5>
+          <p class="fs-5">{{ feedback.questionContent }}</p>
+
+          <div class="d-flex align-items-center mb-2">
+            <img *ngIf="feedback.isCorrect" src="./images/correct.jfif"alt="Correct" class="me-2" width="40" />
+            <img *ngIf="!feedback.isCorrect" src="./images/inCorrect.jfif" alt="Wrong" class="me-2" width="40" />
+            <p class="m-0 fs-5">
+              Your Answer:
+              <span [class.text-success]="feedback.isCorrect" [class.text-danger]="!feedback.isCorrect">
+                {{ feedback.userAnswer }}
+              </span>
+            </p>
+          </div>
+
+          <div class="alert alert-warning d-flex align-items-start">
+            <img src="./images/fedbak.jfif" alt="AI Bot" width="50" class="me-3" />
+            <div>
+              <strong>AI Feedback:</strong>
+              <p class="mb-0">{{ feedback.aiFeedback }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+
+</section>

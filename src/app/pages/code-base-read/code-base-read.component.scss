@@ -1,0 +1,26 @@
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.btn-warning:hover {
+  background-color: #d17d0b !important;
+  box-shadow: 0 6px 12px rgba(209, 125, 11, 0.6);
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px !important;
+  }
+  .lead {
+    font-size: 1rem;
+  }}
+  .container {
+  max-width: 700px;
+  background-color: #fff3e0; /* لون خلفية هادي */
+  border-radius: 15px;       /* حواف دائرية ناعمة */
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.2); /* ظل خفيف للعمق */
+}
+

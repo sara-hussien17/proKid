@@ -1,0 +1,101 @@
+
+
+.logo-section img{
+    max-width: 500px;
+}
+.box-item {
+  background-color: #75BF41;
+  border-radius: 15px;
+  color: #4C5867;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Hover effect */
+.box-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 767px) {
+  .box-item {
+    padding: 2rem 1rem;
+  }
+}
+
+/* الدائرة */
+.circle {
+  background-color: #007bff;
+  transition: background-color 0.4s ease;
+  cursor: pointer;
+}
+
+/* تغيير لون عند المرور */
+.circle:hover {
+  background-color: #0056b3;
+}
+
+/* الصورة */
+.logo-img {
+  transition: transform 0.3s ease;
+}
+
+/* حركة ميل خفيفة */
+@keyframes tilt-img {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* لما الماوس يكون فوق الدائرة، الصورة تعمل ميل بسيط */
+.group-hover-area:hover .logo-img {
+  animation: tilt-img 0.6s ease;
+}
+
+
+.carouselSec{
+       background-color: #f7f7f7;
+    }
+
+.carousel-indicators [data-bs-target]{
+height: 12px;
+width: 12px;
+border-radius: 50%;
+background-color: #869791;
+margin-left: 10px;
+margin-top: 10px;
+
+    }
+    .client-item p{
+    word-spacing: 2px;
+    font-size: 24px;
+    padding: 5px;
+}
+.client-item h6 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 30px 0 5px;}
+
+    .client-item span {
+        font-size: 16px;
+        font-weight: 600;
+        color: #888;
+      
+    }
+    .section-head{
+         font-family: 'Abril Fatface', serif;
+            font-size: 78px;
+            color: #4C5867;
+    }
+    .imgSec{
+       background-color: #f7f7f7;  
+    }
