@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Router ,RouterModule} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { PlayListService } from '../../core/services/playList/play-list.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
@@ -7,7 +7,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   selector: 'app-ai-course',
   imports: [RouterModule],
   templateUrl: './ai-course.component.html',
-  styleUrl: './ai-course.component.scss'
+  styleUrl: './ai-course.component.scss',
 })
 export class AiCourseComponent implements OnInit {
   private readonly _Router = inject(Router);
@@ -19,12 +19,12 @@ export class AiCourseComponent implements OnInit {
   sanitizedVideoUrl: SafeResourceUrl = '';
 
   ngOnInit(): void {
-    this._PlayListService.GetVideos().subscribe({
+    this._PlayListService.GetVideosAi().subscribe({
       next: (res) => {
         // بناء رابط الـ embed لكل فيديو
-        this.videos = res.map((video:any)=> ({
+        this.videos = res.map((video: any) => ({
           ...video,
-          embedUrl: `https://www.youtube.com/embed/${video.youtubeVideoId}`
+          embedUrl: `https://www.youtube.com/embed/${video.youtubeVideoId}`,
         }));
 
         if (this.videos.length > 0) {
@@ -33,12 +33,14 @@ export class AiCourseComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
-      }
+      },
     });
   }
 
   selectVideo(video: any) {
     this.selectedVideoUrl = video.embedUrl;
-    this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(video.embedUrl);
+    this.sanitizedVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      video.embedUrl
+    );
   }
 }

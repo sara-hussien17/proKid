@@ -1,0 +1,35 @@
+<section class="mt-5 mx-auto py-5">
+  <div class="container py-4">
+    <h2 class="text-center text-warning fw-bold mb-4">
+      Pick the quiz that matches the video number you watched!
+    </h2>
+
+    <div class="container-fluid py-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div class="quiz-list d-flex flex-wrap justify-content-center gap-3">
+            @for (quiz of quizzes; track quiz) {
+            <div class="quiz-card" (click)="goToQuiz()">Quiz {{ quiz.id }}</div>
+            }
+
+            <div
+              class="quiz-card bg-success text-white fw-bold text-center"
+              style="min-width: 160px"
+              (click)="goToFinalQuiz()"
+            >
+              🎓 Final Quiz
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center">
+          <img
+            src="./images/4ra5_kd3y_220310.jpg"
+            alt="Learning Animation"
+            class="img-fluid animation-img"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

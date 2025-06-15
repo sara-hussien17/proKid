@@ -1,159 +1,325 @@
-
-<section class="my-5 mt-5">
-<div class="container  ">
-    <div class="row justify-content-center ">
+<section class="my-5 mt-5 py-3">
+  <div class="container">
+    <div class="row justify-content-center">
       <div class="col-md-9 mt-5 border border-2 p-4 pt-0 rounded-4">
-        <h2 class="mb-4 mt-5 fw-bold fs-2">register:</h2>
+        <h2 class="mb-4 mt-5 fw-bold fs-2">Register:</h2>
         <form [formGroup]="sRegisterForm" (ngSubmit)="Register()">
           <div class="row mb-3">
             <div class="col">
               <label for="firstName" class="form-label fs-4">First name</label>
-              <input [class]="{
-                'is-invalid':sRegisterForm.get('firstName')?.errors &&( sRegisterForm.get('firstName')?.touched ||sRegisterForm.get('firstName')?.dirty),
-                'is-valid':!sRegisterForm.get('firstName')?.errors && (sRegisterForm.get('firstName')?.touched ||sRegisterForm.get('firstName')?.dirty)
-            }"
-               formControlName="firstName" type="text" class="form-control p-3" id="firstName" placeholder="Your first name">
-              @if (sRegisterForm.get('firstName')?.errors && sRegisterForm.get('firstName')?.touched) {
-              <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              <input
+                [class]="{
+                  'is-invalid':
+                    sRegisterForm.get('firstName')?.errors &&
+                    (sRegisterForm.get('firstName')?.touched ||
+                      sRegisterForm.get('firstName')?.dirty),
+                  'is-valid':
+                    !sRegisterForm.get('firstName')?.errors &&
+                    (sRegisterForm.get('firstName')?.touched ||
+                      sRegisterForm.get('firstName')?.dirty)
+                }"
+                formControlName="firstName"
+                type="text"
+                class="form-control p-3"
+                id="firstName"
+                placeholder="Your first name"
+              />
+              @if (sRegisterForm.get('firstName')?.errors &&
+              sRegisterForm.get('firstName')?.touched) {
+              <div
+                class="alert alert-danger mt-1 d-flex align-items-center"
+                role="alert"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="bi flex-shrink-0 me-2 error-svg"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
                 </svg>
                 <div>
                   <span class="font-medium">check errors</span>
                   <ul class="mt-1">
-                    @if (sRegisterForm.get('firstName')?.getError('required')) {  <li>first Name input is reequired </li>}
-                   @if (sRegisterForm.get('firstName')?.getError('minlength')) { <li> first name must be at least 3 characters </li>}
-                   @if (sRegisterForm.get('firstName')?.getError('maxlength')){ <li> first name length must be maximum 10 characters </li>}
-                    
-                </ul>
+                    @if (sRegisterForm.get('firstName')?.getError('required')) {
+                    <li>first Name input is reequired</li>
+                    } @if
+                    (sRegisterForm.get('firstName')?.getError('minlength')) {
+                    <li>first name must be at least 3 characters</li>
+                    } @if
+                    (sRegisterForm.get('firstName')?.getError('maxlength')){
+                    <li>first name length must be maximum 10 characters</li>
+                    }
+                  </ul>
                 </div>
-              </div>}
+              </div>
+              }
             </div>
             <div class="col">
               <label for="lastName" class="form-label fs-4">Last name</label>
-              <input [class]="{
-                'is-valid': !sRegisterForm.get('lastName')?.errors && (sRegisterForm.get('lastName')?.touched ||sRegisterForm.get('rePassword')?.dirty),
-                'is-invalid': sRegisterForm.get('lastName')?.errors &&( sRegisterForm.get('lastName')?.touched ||sRegisterForm.get('rePassword')?.dirty)
-            }"
-              formControlName="lastName"  type="text" class="form-control p-3" id="lastName" placeholder="Your last name">
-              @if (sRegisterForm.get('lastName')?.errors && sRegisterForm.get('lastName')?.touched) {
-              <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-                <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              <input
+                [class]="{
+                  'is-valid':
+                    !sRegisterForm.get('lastName')?.errors &&
+                    (sRegisterForm.get('lastName')?.touched ||
+                      sRegisterForm.get('rePassword')?.dirty),
+                  'is-invalid':
+                    sRegisterForm.get('lastName')?.errors &&
+                    (sRegisterForm.get('lastName')?.touched ||
+                      sRegisterForm.get('rePassword')?.dirty)
+                }"
+                formControlName="lastName"
+                type="text"
+                class="form-control p-3"
+                id="lastName"
+                placeholder="Your last name"
+              />
+              @if (sRegisterForm.get('lastName')?.errors &&
+              sRegisterForm.get('lastName')?.touched) {
+              <div
+                class="alert alert-danger mt-1 d-flex align-items-center"
+                role="alert"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="bi flex-shrink-0 me-2 error-svg"
+                  viewBox="0 0 16 16"
+                  role="img"
+                  aria-label="Warning:"
+                >
+                  <path
+                    d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                  />
                 </svg>
                 <div>
                   <span class="font-medium">check errors</span>
                   <ul class="mt-1">
-                    @if (sRegisterForm.get('lastName')?.getError('required')) {  <li>last Name input is reequired </li>}
-                   @if (sRegisterForm.get('lastName')?.getError('minlength')) { <li>last name must be at least 3 characters </li>}
-                   @if (sRegisterForm.get('lastName')?.getError('maxlength')){ <li>last name length must be maximum 10 characters </li>}
-                    
-                </ul>
+                    @if (sRegisterForm.get('lastName')?.getError('required')) {
+                    <li>last Name input is reequired</li>
+                    } @if (sRegisterForm.get('lastName')?.getError('minlength'))
+                    {
+                    <li>last name must be at least 3 characters</li>
+                    } @if
+                    (sRegisterForm.get('lastName')?.getError('maxlength')){
+                    <li>last name length must be maximum 10 characters</li>
+                    }
+                  </ul>
                 </div>
-              </div>}
+              </div>
+              }
             </div>
           </div>
-  
+
           <div class="mb-3">
-           
-            
-                <label for="age" class="form-label fs-4">Age</label>
-                <input [class]="{
-                  'is-valid': !sRegisterForm.get('age')?.errors && (sRegisterForm.get('age')?.touched ||sRegisterForm.get('age')?.dirty),
-                  'is-invalid': sRegisterForm.get('age')?.errors &&( sRegisterForm.get('age')?.touched ||sRegisterForm.get('age')?.dirty)
+            <label for="age" class="form-label fs-4">Age</label>
+            <input
+              [class]="{
+                'is-valid':
+                  !sRegisterForm.get('age')?.errors &&
+                  (sRegisterForm.get('age')?.touched ||
+                    sRegisterForm.get('age')?.dirty),
+                'is-invalid':
+                  sRegisterForm.get('age')?.errors &&
+                  (sRegisterForm.get('age')?.touched ||
+                    sRegisterForm.get('age')?.dirty)
               }"
-                formControlName="age"  type="number" class="form-control p-3" id="age" placeholder="Your Age"> 
-                @if (sRegisterForm.get('age')?.errors && sRegisterForm.get('age')?.touched) {
-                <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                  </svg>
-                  <div>
-                    <span class="font-medium">check errors</span>
-                    <ul class="mt-1">
-                      @if (sRegisterForm.get('age')?.getError('required')) {  <li>age input is reequired </li>}
-                     @if (sRegisterForm.get('age')?.getError('min')) { <li>the age must be at least 8 years </li>}
-                     @if (sRegisterForm.get('age')?.getError('max')){ <li>the age must be maximum 13 years </li>}
-                      
-                  </ul>
-                  </div>
-                </div>}
-             
-          </div>
-          <div class="mb-3">
-            <label for="parentNumber" class="form-label fs-4">parent Number</label>
-            <input  [class]="{
-              'is-valid': !sRegisterForm.get('parentNumber')?.errors && (sRegisterForm.get('parentNumber')?.touched ||sRegisterForm.get('parentNumber')?.dirty),
-              'is-invalid': sRegisterForm.get('parentNumber')?.errors &&( sRegisterForm.get('parentNumber')?.touched ||sRegisterForm.get('parentNumber')?.dirty)
-          }"
-             formControlName="parentNumber"  type="tel" class="form-control p-3" id="parentNumber" placeholder="Your parent Number">
-            @if (sRegisterForm.get('parentNumber')?.errors && sRegisterForm.get('parentNumber')?.touched) {
-            <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-              <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
-              <div>
-                <span class="font-medium">check errors :</span>
-                <ul class="mt-1">
-                  @if (sRegisterForm.get('parentNumber')?.getError('required')) {  <li>phone input is reequired </li>}
-                 @if (sRegisterForm.get('parentNumber')?.getError('pattern')) { <li>phone format is not correct </li>}
-                
-                  
-              </ul>
-              </div>
-            </div>}
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label fs-4">Email address</label>
-            <input  [class]="{
-              'is-valid': !sRegisterForm.get('email')?.errors && (sRegisterForm.get('email')?.touched ||sRegisterForm.get('email')?.dirty),
-              'is-invalid': sRegisterForm.get('email')?.errors &&( sRegisterForm.get('email')?.touched ||sRegisterForm.get('email')?.dirty)
-          }"
-             formControlName="email"  type="email" class="form-control p-3" id="email" placeholder="Your email">
-            @if (sRegisterForm.get('email')?.errors && sRegisterForm.get('email')?.touched) {
-            <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-              <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </svg>
-              <div>
-                <span class="font-medium">check errors :</span>
-                <ul class="mt-1">
-                  @if (sRegisterForm.get('email')?.getError('required')) {  <li>email input is reequired </li>}
-                 @if (sRegisterForm.get('email')?.getError('email')) { <li>email format is not correct </li>}
-                
-                  
-              </ul>
-              </div>
-            </div>}
-          </div>
-  
-          <div class="mb-4">
-            <label for="password" class="form-label fs-4">Password</label>
-            <input  [class]="{
-              'is-valid': !sRegisterForm.get('password')?.errors && (sRegisterForm.get('password')?.touched ||sRegisterForm.get('password')?.dirty),
-              'is-invalid': sRegisterForm.get('password')?.errors &&( sRegisterForm.get('password')?.touched ||sRegisterForm.get('password')?.dirty)
-          }"
-             formControlName="password"  type="password" class="form-control p-3" id="password" placeholder="Password">
-            @if (sRegisterForm.get('password')?.errors && sRegisterForm.get('password')?.touched) {
-            <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-              <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              formControlName="age"
+              type="number"
+              class="form-control p-3"
+              id="age"
+              placeholder="Your Age"
+            />
+            @if (sRegisterForm.get('age')?.errors &&
+            sRegisterForm.get('age')?.touched) {
+            <div
+              class="alert alert-danger mt-1 d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi flex-shrink-0 me-2 error-svg"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
               </svg>
               <div>
                 <span class="font-medium">check errors</span>
-                    <ul class="mt-1 ">
-                      @if (sRegisterForm.get('password')?.getError('required')) {  <li>password input is reequired </li>}
-                     @if (sRegisterForm.get('password')?.getError('pattern')) { <li>password is not correct </li>}
-                    
-                      
-                  </ul>
+                <ul class="mt-1">
+                  @if (sRegisterForm.get('age')?.getError('required')) {
+                  <li>age input is reequired</li>
+                  } @if (sRegisterForm.get('age')?.getError('min')) {
+                  <li>the age must be at least 8 years</li>
+                  } @if (sRegisterForm.get('age')?.getError('max')){
+                  <li>the age must be maximum 13 years</li>
+                  }
+                </ul>
               </div>
-            </div>}
+            </div>
+            }
           </div>
-  
-          <button type="submit" class="btn btn-warning w-100 fs-4">Register</button>
+          <div class="mb-3">
+            <label for="parentNumber" class="form-label fs-4"
+              >parent Number</label
+            >
+            <input
+              [class]="{
+                'is-valid':
+                  !sRegisterForm.get('parentNumber')?.errors &&
+                  (sRegisterForm.get('parentNumber')?.touched ||
+                    sRegisterForm.get('parentNumber')?.dirty),
+                'is-invalid':
+                  sRegisterForm.get('parentNumber')?.errors &&
+                  (sRegisterForm.get('parentNumber')?.touched ||
+                    sRegisterForm.get('parentNumber')?.dirty)
+              }"
+              formControlName="parentNumber"
+              type="tel"
+              class="form-control p-3"
+              id="parentNumber"
+              placeholder="Your parent Number"
+            />
+            @if (sRegisterForm.get('parentNumber')?.errors &&
+            sRegisterForm.get('parentNumber')?.touched) {
+            <div
+              class="alert alert-danger mt-1 d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi flex-shrink-0 me-2 error-svg"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium">check errors :</span>
+                <ul class="mt-1">
+                  @if (sRegisterForm.get('parentNumber')?.getError('required'))
+                  {
+                  <li>phone input is reequired</li>
+                  } @if (sRegisterForm.get('parentNumber')?.getError('pattern'))
+                  {
+                  <li>phone format is not correct</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            }
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label fs-4">Email address</label>
+            <input
+              [class]="{
+                'is-valid':
+                  !sRegisterForm.get('email')?.errors &&
+                  (sRegisterForm.get('email')?.touched ||
+                    sRegisterForm.get('email')?.dirty),
+                'is-invalid':
+                  sRegisterForm.get('email')?.errors &&
+                  (sRegisterForm.get('email')?.touched ||
+                    sRegisterForm.get('email')?.dirty)
+              }"
+              formControlName="email"
+              type="email"
+              class="form-control p-3"
+              id="email"
+              placeholder="Your email"
+            />
+            @if (sRegisterForm.get('email')?.errors &&
+            sRegisterForm.get('email')?.touched) {
+            <div
+              class="alert alert-danger mt-1 d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi flex-shrink-0 me-2 error-svg"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium">check errors :</span>
+                <ul class="mt-1">
+                  @if (sRegisterForm.get('email')?.getError('required')) {
+                  <li>email input is reequired</li>
+                  } @if (sRegisterForm.get('email')?.getError('email')) {
+                  <li>email format is not correct</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            }
+          </div>
 
-         
+          <div class="mb-4">
+            <label for="password" class="form-label fs-4">Password</label>
+            <input
+              [class]="{
+                'is-valid':
+                  !sRegisterForm.get('password')?.errors &&
+                  (sRegisterForm.get('password')?.touched ||
+                    sRegisterForm.get('password')?.dirty),
+                'is-invalid':
+                  sRegisterForm.get('password')?.errors &&
+                  (sRegisterForm.get('password')?.touched ||
+                    sRegisterForm.get('password')?.dirty)
+              }"
+              formControlName="password"
+              type="password"
+              class="form-control p-3"
+              id="password"
+              placeholder="Password"
+            />
+            @if (sRegisterForm.get('password')?.errors &&
+            sRegisterForm.get('password')?.touched) {
+            <div
+              class="alert alert-danger mt-1 d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi flex-shrink-0 me-2 error-svg"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium">check errors</span>
+                <ul class="mt-1">
+                  @if (sRegisterForm.get('password')?.getError('required')) {
+                  <li>password input is reequired</li>
+                  } @if (sRegisterForm.get('password')?.getError('pattern')) {
+                  <li>password is not correct</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            }
+          </div>
+
+          <button type="submit" class="btn btn-warning w-100 fs-4">
+            Register
+          </button>
         </form>
       </div>
     </div>

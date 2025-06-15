@@ -3,15 +3,33 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayListService {
-
   constructor(private _HttpClient: HttpClient) {}
 
-  GetVideos(): Observable<any> {
+  GetVideosAi(): Observable<any> {
     return this._HttpClient.get(
       'https://localhost:7255/api/Videos/by-playlist/1',
+      this.userToken
+    );
+  }
+  GetVideosPaython(): Observable<any> {
+    return this._HttpClient.get(
+      'https://localhost:7255/api/Videos/by-playlist/4',
+      this.userToken
+    );
+  }
+
+  GetVideosScratch(): Observable<any> {
+    return this._HttpClient.get(
+      'https://localhost:7255/api/Videos/by-playlist/3',
+      this.userToken
+    );
+  }
+  GetVideosCodeBase(): Observable<any> {
+    return this._HttpClient.get(
+      'https://localhost:7255/api/Videos/by-playlist/2',
       this.userToken
     );
   }
@@ -21,17 +39,10 @@ export class PlayListService {
       const token = sessionStorage.getItem('token') || '';
       return {
         headers: new HttpHeaders({
-          'Authorization': `Bearer ${token}`
-        })
+          Authorization: `Bearer ${token}`,
+        }),
       };
     }
     return {};
   }
 }
-
-
-
-
-
-
-

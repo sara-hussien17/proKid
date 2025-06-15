@@ -1,11 +1,17 @@
-<section class="my-5 mt-5">
-    <div class="container mt-5 ">
-        <div class="row justify-content-center d-flex text-center  ">
-            <div class="col-md-9 border border-2 p-5 mt-5 rounded-4">
-                <img src="./images/role-pic.png" alt="role-photo" >
-                <div class="m-2 mt-5"> <a [routerLink]="['/register']" type="button" class="btn btn-danger px-4">Student</a></div> 
-                  <div class="m-2"> <a [routerLink]="['/login']" type="button" class="btn btn-primary px-4">Parent</a></div>
-            </div>
-        </div>
+<section class="my-5 mt-5 py-5">
+  <div class="container text-center py-5 mt-5">
+    <img src="./images/role.jfif" alt="Kids Logo" width="150" class="mb-4" />
+
+    <div class="d-grid gap-3">
+      <a routerLink="/register" class="btn btn-custom btn-register"
+        >Register for Student</a
+      >
+      <a routerLink="/login" class="btn btn-custom btn-student"
+        >Login as Student</a
+      >
+      <a routerLink="/login" class="btn btn-custom btn-parent"
+        >Login as Parent</a
+      >
     </div>
+  </div>
 </section>

@@ -1,57 +1,97 @@
-<section class="my-5 mt-5">
-    <div class="container mt-5 ">
-        <div class="row justify-content-center ">
-          <div class="col-md-9 border border-2 p-4 rounded-4">
-            <h2 class="mb-4 mt-5 fw-bold fs-2">login:</h2>
-            <form [formGroup]="loginForm">
-  
-            
-      
-              <div class="mb-3">
-                <label for="email" class="form-label fs-4">Email address</label>
-                <input formControlName="email"  type="email" class="form-control p-3" id="email" placeholder="Your email">
-                @if (loginForm.get('email')?.errors && loginForm.get('email')?.touched) {
-                <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                  </svg>
-                  <div>
-                    <span class="font-medium">check errors :</span>
-                    <ul class="mt-1">
-                      @if (loginForm.get('email')?.getError('required')) {  <li>email input is reequired </li>}
-                     @if (loginForm.get('email')?.getError('email')) { <li>email format is not correct </li>}
-                    
-                      
-                  </ul>
-                  </div>
-                </div>}
+<section class="my-5 mt-5 py-4">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-9 border border-2 p-4 rounded-4">
+        <h2 class="mb-4 mt-5 fw-bold fs-2">login:</h2>
+        <form [formGroup]="loginForm">
+          <div class="mb-3">
+            <label for="email" class="form-label fs-4">Email address</label>
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control p-3"
+              id="email"
+              placeholder="Your email"
+            />
+            @if (loginForm.get('email')?.errors &&
+            loginForm.get('email')?.touched) {
+            <div
+              class="alert alert-danger mt-1 d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi flex-shrink-0 me-2 error-svg"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium">check errors :</span>
+                <ul class="mt-1">
+                  @if (loginForm.get('email')?.getError('required')) {
+                  <li>email input is reequired</li>
+                  } @if (loginForm.get('email')?.getError('email')) {
+                  <li>email format is not correct</li>
+                  }
+                </ul>
               </div>
-      
-              <div class="mb-4">
-                <label for="password" class="form-label fs-4">Password</label>
-                <input formControlName="password"  type="password" class="form-control p-3" id="password" placeholder="Password">
-                @if (loginForm.get('password')?.errors && loginForm.get('password')?.touched) {
-                <div class="alert alert-danger mt-1 d-flex align-items-center" role="alert">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="bi flex-shrink-0 me-2 error-svg  " viewBox="0 0 16 16" role="img" aria-label="Warning:">
-                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                  </svg>
-                  <div>
-                    <span class="font-medium">check errors</span>
-                        <ul class="mt-1 ">
-                          @if (loginForm.get('password')?.getError('required')) {  <li>password input is reequired </li>}
-                         @if (loginForm.get('password')?.getError('pattern')) { <li>password is not correct </li>}
-                        
-                          
-                      </ul>
-                  </div>
-                </div>}
-              </div>
-      
-              <button (click)="login()" class="btn btn-warning w-100 fs-4">login</button>
-              <button  class="btn btn-outline-dark mt-4  fs-4" routerLink="register">register</button>
-             
-            </form>
+            </div>
+            }
           </div>
-        </div>
+
+          <div class="mb-4">
+            <label for="password" class="form-label fs-4">Password</label>
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control p-3"
+              id="password"
+              placeholder="Password"
+            />
+            @if (loginForm.get('password')?.errors &&
+            loginForm.get('password')?.touched) {
+            <div
+              class="alert alert-danger mt-1 d-flex align-items-center"
+              role="alert"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="bi flex-shrink-0 me-2 error-svg"
+                viewBox="0 0 16 16"
+                role="img"
+                aria-label="Warning:"
+              >
+                <path
+                  d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+                />
+              </svg>
+              <div>
+                <span class="font-medium">check errors</span>
+                <ul class="mt-1">
+                  @if (loginForm.get('password')?.getError('required')) {
+                  <li>password input is reequired</li>
+                  } @if (loginForm.get('password')?.getError('pattern')) {
+                  <li>password is not correct</li>
+                  }
+                </ul>
+              </div>
+            </div>
+            }
+          </div>
+
+          <button (click)="login()" class="btn btn-warning w-100 fs-4">
+            login
+          </button>
+          <button class="btn btn-outline-dark mt-4 fs-4" routerLink="register">
+            register
+          </button>
+        </form>
       </div>
-    </section>
+    </div>
+  </div>
+</section>

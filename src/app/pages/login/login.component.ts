@@ -35,7 +35,7 @@ export class LoginComponent {
           console.log(res);
           sessionStorage.setItem('token', res.token);
           this._AuthService.decodeToken();
-          this._Router.navigate(['/home']);
+          this._Router.navigate(['/courses']);
         },
         error: (err) => {
           console.log(err);
